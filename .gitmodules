@@ -1,0 +1,3 @@
+[submodule "lib/shmake"]
+	path = lib/shmake
+	url = https://github.com/arjunsrini/shmake.git

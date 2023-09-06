@@ -1,0 +1,7 @@
+# Each line of instruction in this `external.txt` file should contain a destination and source delimited by a `|`.
+# Lines beginning with # are ignored.
+# 
+# Make sure the last line of this file is an empty newline.
+# 
+# Destination | Source
+dropbox | pathToDb
