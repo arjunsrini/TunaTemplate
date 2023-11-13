@@ -1,0 +1,7 @@
+Making data module with shell: /bin/zsh
+Running: merge_data.py
+Running: clean_data.py
+Making analysis module with shell: /bin/zsh
+Running: analyze_data.py
+Making paper_slides module with shell: /bin/zsh
+Running: paper.tex

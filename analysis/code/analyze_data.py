@@ -20,6 +20,8 @@ def import_data():
     return(df)
 
 def run_regression(df):
+    # drop missing values of chips_sold or post_tv
+    df = df.dropna(subset = ['chips_sold', 'post_tv'])
     df = df.set_index(['county_id', 'year'])
     model = PanelOLS.from_formula('chips_sold ~ 1 + post_tv + EntityEffects + TimeEffects', data = df)
     fit = model.fit()

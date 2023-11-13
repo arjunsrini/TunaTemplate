@@ -16,7 +16,7 @@ export LOGFILE
 export PATH_TO_LIB
 
 # print shell being used
-echo "Making with shell: ${SHELL}"
+echo "Making data module with shell: ${SHELL}"
 
 # remove previous output
 rm -rf external
