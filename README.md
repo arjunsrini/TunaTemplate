@@ -4,9 +4,20 @@ A simplified version of [`gentzkow/template`](https://github.com/gentzkow/templa
 
 In honor of Tuna 🍣 🐈
 
-### Build
+### Building this repo
 
-Type `bash make.sh`.
+```sh
+# clone the repo, cd into it
+git clone https://github.com/arjunsrini/TunaTemplate
+cd TunaTemplate
+
+# load the shmake submodule
+git submodule init
+git submodule update
+
+# build the project
+bash make.sh
+```
 <!-- 2. At the root of your repo, create a file called `config.yaml` with contents like the file `setup/example_config.yaml`. -->
 
 <!-- or `make` from the root of the repo. To build an a submodule (e.g. `analysis`), type `make` while your current working directory is `your-path-to-repo/analysis`. -->
