@@ -15,7 +15,8 @@ def plot_data(df):
     plt.savefig('output/chips_sold.pdf')
 
 def clean_data(df):
-    df['chips_sold'][df['chips_sold'] == -999999] = np.NaN
+    # df['chips_sold'][df['chips_sold'] == -999999] = np.NaN
+    df.loc[df['chips_sold'] == -999999, 'chips_sold'] = np.nan
     return(df)
     
 ### EXECUTE

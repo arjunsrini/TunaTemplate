@@ -22,6 +22,7 @@ echo "Making with shell: ${SHELL}"
 rm -rf external
 rm -rf output
 
+
 # create empty output directories
 mkdir -p output
 mkdir -p output/figures
@@ -38,6 +39,14 @@ source ${PATH_TO_LIB} && ${SHELL} ${PATH_TO_MAKE_EXT}
 
 # copy it to this module
 cp -r ${PATH_TO_ALL_LIBRARIES} ./lib/
+
+
+
+# For now: manually copy inputs from data:
+rm -rf input
+mkdir input
+cp ${PATH_TO_ROOT}/data/output/data_cleaned.csv input/data_cleaned.csv
+
 
 # run the programs in the order specified in the program order file
 source ${PATH_TO_LIB} && cat ${PROGRAM_ORDER} | run_programs_in_order
