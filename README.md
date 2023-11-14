@@ -28,6 +28,10 @@ Click `Use this template` to create your own repo. For more info, see [this](htt
 
 ### Notes
 
-#### `shmake`
+#### [`shmake`](https://github.com/arjunsrini/shmake)
 
 Included as a git submodule, this is a shell version of [`gslab_make`](https://github.com/gslab-econ/gslab_make).
+
+### License
+
+See [here](https://github.com/arjunsrini/TunaTemplate/blob/main/LICENSE.txt).
