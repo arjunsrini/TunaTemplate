@@ -1,25 +1,31 @@
 
 
 Making [35mdata[0m module with shell: /bin/zsh
+No config.yaml file found in root directory.
 
 Running: merge_data.py
-Executing: python3 code/merge_data.py >> "output/build.log"
+No python command set. Using default: python
+Executing: python code/merge_data.py >> "output/build.log"
 
 Running: clean_data.py
-Executing: python3 code/clean_data.py >> "output/build.log"
+Executing: python code/clean_data.py >> "output/build.log"
 
 
 Making [35manalysis[0m module with shell: /bin/zsh
+No config.yaml file found in root directory.
 
 Running: analyze_data.py
-Executing: python3 code/analyze_data.py >> "output/build.log"
+No python command set. Using default: python
+Executing: python code/analyze_data.py >> "output/build.log"
 
 
 Making [35mpaper_slides[0m module with shell: /bin/zsh
+No config.yaml file found in root directory.
 
 Running: paper.tex
 Executing: pdflatex paper.tex >> "output/build.log"
 Executing: bibtex paper.aux >> "output/build.log"
+Error: bibtex failed. See output/build.log for details.
 Sleeping 1 second...
 Executing: pdflatex paper.tex >> "output/build.log"
 Executing: pdflatex paper.tex >> "output/build.log"

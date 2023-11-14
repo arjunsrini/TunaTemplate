@@ -15,6 +15,9 @@ export PATH_TO_ROOT
 export LOGFILE
 export PATH_TO_LIB
 
+# Exit on non-zero return values (errors)
+set -e
+
 # print shell being used
 echo "\n\nMaking \033[35mpaper_slides\033[0m module with shell: ${SHELL}"
 

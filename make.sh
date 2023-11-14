@@ -3,6 +3,9 @@
 # Project log
 PROJECT_LOGFILE="build.log"
 
+# Exit on non-zero return values (errors)
+set -e
+
 # Run makeiles of each submodule
 rm -f ${PROJECT_LOGFILE}
 {
