@@ -16,7 +16,7 @@ export LOGFILE
 export PATH_TO_LIB
 
 # print shell being used
-echo "Making analysis module with shell: ${SHELL}"
+echo "\n\nMaking \033[35manalysis\033[0m module with shell: ${SHELL}"
 
 # remove previous output
 rm -rf external
