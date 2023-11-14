@@ -40,6 +40,9 @@ config.yaml
 .conda_info
 
 
+# Python virtual environment
+venv/
+
 # Template input dataset
 !data/input/chips.csv
 !data/input/tv.csv
