@@ -1,7 +1,25 @@
-Making data module with shell: /bin/zsh
+
+
+Making [35mdata[0m module with shell: /bin/zsh
+
 Running: merge_data.py
+Executing: python3 code/merge_data.py >> "output/build.log"
+
 Running: clean_data.py
-Making analysis module with shell: /bin/zsh
+Executing: python3 code/clean_data.py >> "output/build.log"
+
+
+Making [35manalysis[0m module with shell: /bin/zsh
+
 Running: analyze_data.py
-Making paper_slides module with shell: /bin/zsh
+Executing: python3 code/analyze_data.py >> "output/build.log"
+
+
+Making [35mpaper_slides[0m module with shell: /bin/zsh
+
 Running: paper.tex
+Executing: pdflatex paper.tex >> "output/build.log"
+Executing: bibtex paper.aux >> "output/build.log"
+Sleeping 1 second...
+Executing: pdflatex paper.tex >> "output/build.log"
+Executing: pdflatex paper.tex >> "output/build.log"
