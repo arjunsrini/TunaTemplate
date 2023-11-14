@@ -6,6 +6,7 @@ LOGFILE=output/build.log
 
 # Constants
 PATH_TO_ROOT=..
+ENV_DIR="venv"
 PATH_TO_MAKE_LIB=${PATH_TO_ROOT}/lib/shmake/make_lib.sh
 PATH_TO_MAKE_EXT=${PATH_TO_ROOT}/lib/shmake/make_externals.sh
 PATH_TO_LIB=${PATH_TO_ROOT}/lib/shmake/lib.sh
@@ -25,7 +26,6 @@ echo "\n\nMaking \033[35manalysis\033[0m module with shell: ${SHELL}"
 rm -rf external
 rm -rf output
 
-
 # create empty output directories
 mkdir -p output
 mkdir -p output/figures
@@ -38,11 +38,13 @@ rm -f ${LOGFILE}
 ${SHELL} ${PATH_TO_MAKE_LIB}
 
 # load the shell utility library
-source ${PATH_TO_LIB} && ${SHELL} ${PATH_TO_MAKE_EXT}
+source ${PATH_TO_LIB}
+
+# link externals
+${SHELL} ${PATH_TO_MAKE_EXT}
 
 # copy it to this module
 cp -r ${PATH_TO_ALL_LIBRARIES} ./lib/
-
 
 
 # For now: manually copy inputs from data:
@@ -51,9 +53,18 @@ mkdir input
 cp ${PATH_TO_ROOT}/data/output/data_cleaned.csv input/data_cleaned.csv
 
 
+# create the virtual environment if it doesn't exist
+# activate the virtual environment
+if [ ! -d "$PATH_TO_ROOT/$ENV_DIR" ]; then
+    echo "No virtual environment exists here: $PATH_TO_ROOT/$ENV_DIR"
+    create_activate_venv
+else 
+    echo "Virutal environment exists here: $PATH_TO_ROOT/$ENV_DIR"
+    activate_venv
+fi
+
 # run the programs in the order specified in the program order file
-source ${PATH_TO_LIB} && cat ${PROGRAM_ORDER} | run_programs_in_order
+cat ${PROGRAM_ORDER} | run_programs_in_order
 
 # clean up by removing the shell utility library
 rm -f ${PATH_TO_LIB}
-
