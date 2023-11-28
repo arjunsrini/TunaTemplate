@@ -1,20 +1,17 @@
 #!/bin/bash   
 
 # User-defined inputs
-PROGRAM_ORDER="./program_order.txt"
 LOGFILE=output/build.log
 
 # Constants
 PATH_TO_ROOT=..
 ENV_DIR="venv"
-PATH_TO_MAKE_LIB=${PATH_TO_ROOT}/lib/shmake/make_lib.sh
 PATH_TO_MAKE_EXT=${PATH_TO_ROOT}/lib/shmake/make_externals.sh
-PATH_TO_LIB=${PATH_TO_ROOT}/lib/shmake/lib.sh
+PATH_TO_CONFIG=${PATH_TO_ROOT}/config.sh
 PATH_TO_ALL_LIBRARIES=${PATH_TO_ROOT}/lib/
 
 export PATH_TO_ROOT
 export LOGFILE
-export PATH_TO_LIB
 
 # Exit on non-zero return values (errors)
 set -e
@@ -34,11 +31,8 @@ mkdir -p output/tables
 # remove pre-existing log file
 rm -f ${LOGFILE}
 
-# make the shell utility library 
-${SHELL} ${PATH_TO_MAKE_LIB}
-
 # load the shell utility library
-source ${PATH_TO_LIB}
+source ${PATH_TO_CONFIG}
 
 # link externals
 ${SHELL} ${PATH_TO_MAKE_EXT}
@@ -46,12 +40,9 @@ ${SHELL} ${PATH_TO_MAKE_EXT}
 # copy it to this module
 cp -r ${PATH_TO_ALL_LIBRARIES} ./lib/
 
-
-# For now: manually copy inputs 
+# Copy inputs from data:
 rm -rf input
-mkdir input
-cp ${PATH_TO_ROOT}/data/output/chips_sold.pdf input/chips_sold.pdf
-
+cp -r ${PATH_TO_ROOT}/data/output input
 
 # create the virtual environment if it doesn't exist
 # activate the virtual environment
@@ -64,7 +55,7 @@ else
 fi
 
 # run the programs in the order specified in the program order file
-cat ${PROGRAM_ORDER} | run_programs_in_order
+run_latex paper $LOGFILE
 
 # For now: manually move compiled pdf
 mv ./code/paper.pdf ./output/paper.pdf
