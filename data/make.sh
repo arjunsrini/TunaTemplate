@@ -8,6 +8,7 @@ PATH_TO_ROOT=..
 ENV_DIR="venv"
 PATH_TO_MAKE_EXT=${PATH_TO_ROOT}/lib/shmake/make_externals.sh
 PATH_TO_CONFIG=${PATH_TO_ROOT}/config.sh
+PATH_TO_UTILITIES=${PATH_TO_ROOT}/utilities.sh
 PATH_TO_ALL_LIBRARIES=${PATH_TO_ROOT}/lib/
 
 export PATH_TO_ROOT
@@ -33,6 +34,7 @@ rm -f ${LOGFILE}
 
 # load the shell utility library
 source ${PATH_TO_CONFIG}
+source ${PATH_TO_UTILITIES}
 
 # link externals
 ${SHELL} ${PATH_TO_MAKE_EXT}

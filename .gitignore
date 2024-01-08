@@ -1,5 +1,5 @@
-# `config.yaml` is ignored as it contains user-specific settings
-config.yaml
+# `config.sh` is ignored as it contains user-specific settings
+config.sh
 
 # `/external/` and `/input/` subdirectories are ignored as they should contain symbolic links, which are user-specific and can be automatically created via `gslab_make`
 *external/
